@@ -1,15 +1,15 @@
 todo_list = []
 
 def show_menu():
-    print("1.View\n2.Add\n3.Update\n4.Delete\n5.Done\n.Exit")
+    print("1.View\n2.Add\n3.Update\n4.Delete\n5.Done\n6.Exit")
 
 def view_tasks():
     if not todo_list:
         print("No tasks.")
     else:
         for i, task in enumerate(todo_list,1):
-            status = "✅" if task["Done"] else "❌"
-            print(f"{i}.{task['task']}[{status}]")
+            status = "✅" if task["done"] else "❌"
+            print(f"{i}.{task['task']} [{status}]")
 
 def add_task():
     task = input("New task:")
@@ -19,7 +19,7 @@ def add_task():
 def update_task():
     view_tasks()
     try:
-        i=int(input("task number to update:")) - 1
+        i=int(input("task number to update: ")) - 1
         todo_list[i]["task"] = input("New task:")
         print("Updated.")
     except:
@@ -39,7 +39,7 @@ def mark_done():
     try:
         i=int(input("Task number to mark done:")) - 1
         todo_list[i]["Done"] = True
-        print("marked done.")
+        print("Marked done.")
     except:
         print("Invalid.")
 
@@ -55,7 +55,7 @@ while True:
         print("Goodbye!")
         break
     else: print("Try gain.")
-    
+
 
 
 
